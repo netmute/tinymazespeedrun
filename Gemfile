@@ -13,5 +13,6 @@ gem 'sprockets'
 gem 'yui-compressor'
 
 # Development rack server
+gem 'capistrano'
 gem 'rack'
 gem 'rack-rewrite', :require => 'rack/rewrite'

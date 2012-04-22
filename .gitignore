@@ -3,3 +3,5 @@
 .sass-cache/
 tmp/
 vendor/
+
+config/deploy.rb
