@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+Bundler.require
+
+Compass.add_project_configuration 'config/compass.rb'
+
+# Ignore these folders for compilation
+%w(img).each do |dir|
+  compile("/#{dir}/*/") { nil }
+  route("/#{dir}/*/") { item.identifier.chop + '.' + item[:extension] }
+end
+
+# Compile the stylesheets
+compile('/css/manifest/') do
+  filter :sass, Compass.sass_engine_options
+  filter :yuicompressor, :type => :css
+end
+route('/css/manifest/') { item.identifier.chop + '.css' }
+compile('/css/include/*/') { nil }
+route('/css/include/*/') { nil }
+
+# Compile js
+compile('/js/manifest/') do
+  filter :sprockets
+  filter :yuicompressor, :type => :js
+end
+route('/js/manifest/') { item.identifier.chop + '.js' }
+compile('/js/include/*/') { nil }
+route('/js/include/*/') { nil }
+
+# Compile all haml files to html5
+compile('*') do
+  filter :haml
+  layout 'default'
+end
+route('*') { item.identifier + 'index.html' }
+layout '*', :haml, :format => :html5

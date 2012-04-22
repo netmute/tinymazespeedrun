@@ -1,0 +1,16 @@
+%html
+  %head
+    %title= h 'TinyMazeSpeedrun'
+    %link{ href: relative_path_to(item_with_identifier '/css/manifest/'), rel: 'stylesheet' }
+    %script{ src: relative_path_to(item_with_identifier '/js/manifest/'), type: 'text/javascript' }
+  %body
+    #cr-stage
+    .footer
+      %p
+        Written by Simon Ernst (
+        %a{href:'http://twitter.com/sier', target:'_blank'}
+          @sier
+        ) for
+        %a{href:'http://www.ludumdare.com', target:'_blank'}
+          Ludum Dare 23
+        = '.'

@@ -1,0 +1,5 @@
+*.DS_Store
+.bundle/
+.sass-cache/
+tmp/
+vendor/
