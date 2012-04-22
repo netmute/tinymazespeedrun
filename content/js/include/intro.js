@@ -1,7 +1,7 @@
 Crafty.scene("intro", function () {
   var offset = 110;
 
-  Crafty.init(800,600);
+  Crafty.init(800,630);
   Crafty.e("2D, Canvas, Image")
     .image("img/intro.png")
 

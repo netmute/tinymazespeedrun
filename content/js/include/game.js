@@ -2,7 +2,7 @@ Crafty.scene("game", function () {
 
   var fieldSize = 10,
       fieldCount = difficulty;
-      borderThickness = 1,
+      borderThickness = 2,
       timerSize = 20,
       playingFieldX = (fieldSize+borderThickness)*fieldCount+borderThickness,
       playingFieldY = (fieldSize+borderThickness)*fieldCount+borderThickness;
