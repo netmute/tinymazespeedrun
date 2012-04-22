@@ -35,7 +35,7 @@ function drawTimer(size, screenWidth){
   timer.start();
   Crafty.e("Timer, 2D, Canvas, Text")
     .attr({ y:0, x:screenWidth-142, w:100, h:size })
-    .textFont({size:size+'px', family:'Arial'})
+    .textFont({size:size+'px', family:'Arial', weight: 'normal'})
     .textColor('#000000')
     .bind('EnterFrame', function () {
       this.text('Your time: ' + timer.duration());

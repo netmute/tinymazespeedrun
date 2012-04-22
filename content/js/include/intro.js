@@ -13,7 +13,7 @@ Crafty.scene("intro", function () {
     })
     .text('Easy mode')
     .color('rgb(63,63,63)')
-    .textFont({size:'20px', family:'Arial'})
+    .textFont({size:'20px', family:'Arial', weight: 'normal'})
     .textColor('#FFFFFF')
 
   Crafty.e("2D, Canvas, Color, Text, Mouse")
@@ -23,7 +23,7 @@ Crafty.scene("intro", function () {
       Crafty.scene('game');
     })
     .color('rgb(63,63,63)')
-    .textFont({size:'20px', family:'Arial'})
+    .textFont({size:'20px', family:'Arial', weight: 'normal'})
     .textColor('#FFFFFF')
     .text('Medium mode')
 
@@ -34,7 +34,7 @@ Crafty.scene("intro", function () {
       Crafty.scene('game');
     })
     .color('rgb(63,63,63)')
-    .textFont({size:'20px', family:'Arial'})
+    .textFont({size:'20px', family:'Arial', weight: 'normal'})
     .textColor('#FFFFFF')
     .text('Hard mode')
 
