@@ -9,7 +9,10 @@ Crafty.scene("intro", function () {
     .attr({ y:350, x:45+offset, w:150, h:20 })
     .bind('Click', function(){
       difficulty = 30;
-      Crafty.scene('game');
+      this.text('loading...');
+      setTimeout(function(){
+        Crafty.scene('game');
+      }, 100);
     })
     .text('Easy mode')
     .color('rgb(63,63,63)')
@@ -20,7 +23,10 @@ Crafty.scene("intro", function () {
     .attr({ y:350, x:220+offset, w:150, h:20 })
     .bind('Click', function(){
       difficulty = 40;
-      Crafty.scene('game');
+      this.text('loading...');
+      setTimeout(function(){
+        Crafty.scene('game');
+      }, 100);
     })
     .color('rgb(63,63,63)')
     .textFont({size:'20px', family:'Arial', weight: 'normal'})
@@ -31,7 +37,10 @@ Crafty.scene("intro", function () {
     .attr({ y:350, x:395+offset, w:150, h:20 })
     .bind('Click', function(){
       difficulty = 50;
-      Crafty.scene('game');
+      this.text('loading...');
+      setTimeout(function(){
+        Crafty.scene('game');
+      }, 100);
     })
     .color('rgb(63,63,63)')
     .textFont({size:'20px', family:'Arial', weight: 'normal'})
