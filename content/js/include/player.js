@@ -9,16 +9,16 @@ function createPlayer(start_x, start_y, size, speed, timer){
           .bind("NewDirection", function(direction){
             if (direction.x < 0)
               if (!this.isPlaying("walk_left"))
-                this.stop().animate("walk_left", speed, -1);
+                this.stop().animate("walk_left", 3, -1);
             if (direction.x > 0)
               if (!this.isPlaying("walk_right"))
-                this.stop().animate("walk_right", speed, -1);
+                this.stop().animate("walk_right", 3, -1);
             if (direction.y < 0)
               if (!this.isPlaying("walk_up"))
-                this.stop().animate("walk_up", speed, -1);
+                this.stop().animate("walk_up", 3, -1);
             if (direction.y > 0)
               if (!this.isPlaying("walk_down"))
-                this.stop().animate("walk_down", speed, -1);
+                this.stop().animate("walk_down", 3, -1);
             if(!direction.x && !direction.y)
               this.stop();
           })

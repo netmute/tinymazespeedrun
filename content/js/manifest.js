@@ -4,8 +4,8 @@
 //= require include/timer.js
 //= require include/text.js
 //= require include/generate_maze.js
-//= require include/draw_maze.js
 //= require include/sprites.js
+//= require include/draw_maze.js
 //= require include/player.js
 //= require include/exit.js
 

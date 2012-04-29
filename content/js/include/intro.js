@@ -1,20 +1,20 @@
 Crafty.scene("intro", function () {
   var offset = 110;
 
-  Crafty.init(800,630);
+  Crafty.init(800, 710);
   Crafty.e("2D, Canvas, Image")
     .image("img/intro.png")
 
   Crafty.e("2D, Canvas, Color, Text, Mouse")
     .attr({ y:350, x:45+offset, w:150, h:20 })
     .bind('Click', function(){
-      difficulty = 30;
+      difficulty = easy.size;
       this.text('loading...');
       setTimeout(function(){
         Crafty.scene('game');
       }, 100);
     })
-    .text('Easy mode')
+    .text(easy.text)
     .color('rgb(63,63,63)')
     .textFont({size:'20px', family:'Arial', weight: 'normal'})
     .textColor('#FFFFFF')
@@ -22,7 +22,7 @@ Crafty.scene("intro", function () {
   Crafty.e("2D, Canvas, Color, Text, Mouse")
     .attr({ y:350, x:220+offset, w:150, h:20 })
     .bind('Click', function(){
-      difficulty = 40;
+      difficulty = medium.size;
       this.text('loading...');
       setTimeout(function(){
         Crafty.scene('game');
@@ -31,12 +31,12 @@ Crafty.scene("intro", function () {
     .color('rgb(63,63,63)')
     .textFont({size:'20px', family:'Arial', weight: 'normal'})
     .textColor('#FFFFFF')
-    .text('Medium mode')
+    .text(medium.text)
 
   Crafty.e("2D, Canvas, Color, Text, Mouse")
     .attr({ y:350, x:395+offset, w:150, h:20 })
     .bind('Click', function(){
-      difficulty = 50;
+      difficulty = hard.size;
       this.text('loading...');
       setTimeout(function(){
         Crafty.scene('game');
@@ -45,6 +45,6 @@ Crafty.scene("intro", function () {
     .color('rgb(63,63,63)')
     .textFont({size:'20px', family:'Arial', weight: 'normal'})
     .textColor('#FFFFFF')
-    .text('Hard mode')
+    .text(hard.text)
 
 });
