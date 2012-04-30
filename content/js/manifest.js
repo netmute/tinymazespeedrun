@@ -1,5 +1,4 @@
-//= require include/crafty.js
-//= require include/underscore.js
+//= require_tree ./include/lib/
 
 //= require include/timer.js
 //= require include/text.js

@@ -10,6 +10,7 @@ Crafty.scene("intro", function () {
     .bind('Click', function(){
       difficulty = easy.size;
       this.text('loading...');
+      SoundJS.play('confirm');
       setTimeout(function(){
         Crafty.scene('game');
       }, 100);
@@ -24,6 +25,7 @@ Crafty.scene("intro", function () {
     .bind('Click', function(){
       difficulty = medium.size;
       this.text('loading...');
+      SoundJS.play('confirm');
       setTimeout(function(){
         Crafty.scene('game');
       }, 100);
@@ -38,6 +40,7 @@ Crafty.scene("intro", function () {
     .bind('Click', function(){
       difficulty = hard.size;
       this.text('loading...');
+      SoundJS.play('confirm');
       setTimeout(function(){
         Crafty.scene('game');
       }, 100);

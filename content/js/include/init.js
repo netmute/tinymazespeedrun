@@ -5,5 +5,16 @@ var difficulty,
   hard = { size: 34, text: 'huge room'};
 
 window.onload = function () {
-  Crafty.scene("intro");
+  var manifest = [
+    {id:"confirm", src:"audio/confirm.mp3"},
+    {id:"teleport", src:"audio/teleport.mp3"},
+    {id:"destroy", src:"audio/destroy.mp3"},
+    {id:"powerup", src:"audio/powerup.mp3"}
+  ];
+  preload = new PreloadJS();
+  preload.installPlugin(SoundJS);
+  preload.onComplete = function() {
+    Crafty.scene("intro");
+  }
+  preload.loadManifest(manifest);
 };

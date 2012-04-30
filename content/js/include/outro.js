@@ -20,6 +20,7 @@ Crafty.scene("outro", function () {
   Crafty.e("2D, Canvas, Color, Text, Mouse")
     .attr({ y:300, x:220, w:150, h:20 })
     .bind('Click', function(){
+      SoundJS.play('confirm');
       Crafty.scene('intro');
     })
     .color('rgb(63,63,63)')

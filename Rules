@@ -5,7 +5,7 @@ Bundler.require
 Compass.add_project_configuration 'config/compass.rb'
 
 # Ignore these folders for compilation
-%w(img).each do |dir|
+%w(img audio).each do |dir|
   compile("/#{dir}/*/") { nil }
   route("/#{dir}/*/") { item.identifier.chop + '.' + item[:extension] }
 end
