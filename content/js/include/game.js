@@ -9,7 +9,7 @@ Crafty.scene("game", function () {
 
   Crafty.init(playingFieldX, playingFieldY+timerSize);
   Crafty.background('rgb(255,255,255)');
-  drawText('TinyMazeSpeedrun',timerSize - 2, 0, 0);
+  drawText('Tiny Maze Speedrun',timerSize - 2, 0, 0);
 
   var maze = generateMaze(fieldCount, fieldCount),
     horizontalCenter = (fieldSize+borderThickness)*(fieldCount/2),
@@ -19,9 +19,7 @@ Crafty.scene("game", function () {
 
   drawMaze(fieldCount, fieldSize, timerSize, borderThickness, maze);
   timer = drawTimer(timerSize - 2, playingFieldX);
-  var player = createPlayer(paddingToBorder, horizontalCenter+paddingToBorder+timerSize, playerSize, playerSpeed, timer, playingFieldX, timerSize);
+  createPlayer(paddingToBorder, horizontalCenter+paddingToBorder+timerSize, playerSize, playerSpeed, timer, playingFieldX, timerSize);
   createExit(playingFieldX-playerSize-paddingToBorder, horizontalCenter+paddingToBorder+timerSize, playerSize);
-
-  player.isGod = true;
 
 });

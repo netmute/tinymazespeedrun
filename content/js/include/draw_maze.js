@@ -5,6 +5,12 @@ function drawMaze(fieldCount, fieldSize, timerSize, borderThickness, grid){
     Crafty.e("Border, 2D, Canvas, block" + blockType).attr({ x:x, y:y });
   }
 
+  function drawPowerup(grid_x, grid_y){
+    var x = grid_x * (fieldSize + borderThickness) + borderThickness,
+      y = grid_y * (fieldSize + borderThickness) + timerSize + borderThickness;
+    Crafty.e("Powerup, 2D, Canvas, powerup").attr({ x:x, y:y });
+  }
+
   function drawRightBlock(grid_x, grid_y){
     var x = (grid_x + 1) * (fieldSize + borderThickness),
       y = grid_y * (fieldSize + borderThickness) + timerSize + borderThickness;
@@ -52,24 +58,28 @@ function drawMaze(fieldCount, fieldSize, timerSize, borderThickness, grid){
   _.times(grid.length, function(x){
     _.times(grid[x].length, function(y){
       var current = grid[x][y],
-        bottom = (y === grid[x].length-1 ? 'n' : grid[x][y+1]),
-        right = (x === grid.length-1 ? 'w' : grid[x+1][y]);
+        bottom = (y === grid[x].length-1 ? {direction: 'n'} : grid[x][y+1]),
+        right = (x === grid.length-1 ? {direction: 'w'} : grid[x+1][y]),
+        ttop = (y === 0 ? {direction: 'n'} : grid[x][y-1]),
+        left = (x === 0 ? {direction: 'w'} : grid[x-1][y]);
 
-      if (!(current === 'e') && !(right === 'w'))
+      if (!(current.direction === 'e') && !(right.direction === 'w'))
         drawRightBlock(x, y);
 
-      if (!(current === 's') && !(bottom === 'n'))
+      if (!(current.direction === 's') && !(bottom.direction === 'n'))
         drawBottomBlock(x, y);
 
       if (!(y === grid[x].length-1) && !(x === grid.length-1))
         drawBottomRightBlock(x, y);
 
-      // DEBUG
-      // Crafty.e("2D, Canvas, Text")
-      //   .attr({ w: fieldSize, h: fieldSize, x: borderThickness+x*(fieldSize+borderThickness), y: borderThickness+y*(fieldSize+borderThickness)+timerSize })
-      //   .textFont({size:'10px', family:'Helvetica Neue'})
-      //   .textColor('#FF0000')
-      //   .text(current);
+      var count = 0;
+      count += (bottom.direction === 'n');
+      count += (right.direction === 'w');
+      count += (ttop.direction === 's');
+      count += (left.direction === 'e');
+      if (!count)
+        if (Crafty.math.randomInt(1, difficulty) === difficulty/2)
+          drawPowerup(x, y);
     });
   });
 }

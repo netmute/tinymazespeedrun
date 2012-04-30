@@ -49,6 +49,16 @@ function createPlayer(start_x, start_y, size, speed, timer, maxOuterBounds, minT
         this.attr({x: from.x, y: from.y});
       }
     }
+    // detect if player collected powerup
+    if (this.hit('Powerup')) {
+      var powerup = _.first(this.hit('Powerup')).obj
+      SoundJS.play('powerup');
+      this.isGod = true;
+      powerup.destroy();
+      _.delay(function(player){
+        player.isGod = false;
+      }, 1000, this);
+    }
     // detect if exit reached
     if (this.hit('Exit')) {
       finishGame();
