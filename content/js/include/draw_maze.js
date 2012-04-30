@@ -1,7 +1,8 @@
 function drawMaze(fieldCount, fieldSize, timerSize, borderThickness, grid){
 
   function drawBlock(x, y){
-    Crafty.e("Border, 2D, Canvas, block").attr({ x:x, y:y });
+    var blockType = Crafty.math.randomInt(1, 3);
+    Crafty.e("Border, 2D, Canvas, block" + blockType).attr({ x:x, y:y });
   }
 
   function drawRightBlock(grid_x, grid_y){
@@ -51,7 +52,7 @@ function drawMaze(fieldCount, fieldSize, timerSize, borderThickness, grid){
   _.times(grid.length, function(x){
     _.times(grid[x].length, function(y){
       var current = grid[x][y],
-        bottom = (y === grid[x].length-1 ? 's' : grid[x][y+1]),
+        bottom = (y === grid[x].length-1 ? 'n' : grid[x][y+1]),
         right = (x === grid.length-1 ? 'w' : grid[x+1][y]);
 
       if (!(current === 'e') && !(right === 'w'))
