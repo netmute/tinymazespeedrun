@@ -3,6 +3,11 @@ Crafty.sprite(8, "img/sprites.png", {
   toilet: [0, 1]
 });
 
+Crafty.sprite(30, "img/arrows.png", {
+  blueArrow: [0, 0],
+  greenArrow: [1, 0]
+});
+
 Crafty.sprite(10, "img/features.png", {
   block1: [0, 0],
   block2: [1, 0],
