@@ -78,7 +78,7 @@ function drawMaze(fieldCount, fieldSize, timerSize, borderThickness, grid){
       count += (ttop.direction === 's');
       count += (left.direction === 'e');
       if (!count)
-        if (Crafty.math.randomInt(1, difficulty) === difficulty/2)
+        if (Crafty.math.randomInt(1, mode.size) === mode.size/2)
           drawPowerup(x, y);
     });
   });

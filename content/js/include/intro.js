@@ -1,4 +1,4 @@
-Crafty.scene("intro", function () {
+Crafty.scene("intro", function(){
   var offset = 110,
     buttonWidth = 150,
     buttonHeigth = 20,
@@ -14,7 +14,7 @@ Crafty.scene("intro", function () {
             w:buttonWidth,
             h:buttonHeigth })
     .bind('Click', function(){
-      difficulty = easy.size;
+      mode = easy;
       this.text('loading...');
       SoundJS.play('confirm');
       _.delay(function(){
@@ -32,7 +32,7 @@ Crafty.scene("intro", function () {
             w:buttonWidth,
             h:buttonHeigth })
     .bind('Click', function(){
-      difficulty = medium.size;
+      mode = medium;
       this.text('loading...');
       SoundJS.play('confirm');
       _.delay(function(){
@@ -50,7 +50,7 @@ Crafty.scene("intro", function () {
             w:buttonWidth,
             h:buttonHeigth })
     .bind('Click', function(){
-      difficulty = hard.size;
+      mode = hard;
       this.text('loading...');
       SoundJS.play('confirm');
       _.delay(function(){

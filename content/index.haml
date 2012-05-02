@@ -1,7 +1,8 @@
 %html
   %head
     %title= h 'Tiny Maze Speedrun'
-    %link{ href: relative_path_to(item_with_identifier '/css/manifest/'), rel: 'stylesheet' }
-    %script{ src: relative_path_to(item_with_identifier '/js/manifest/'), type: 'text/javascript' }
+    %link{ href: relative_path_to(item_with_identifier '/css/manifest/') + '?' + Time.now.to_i.to_s, rel: 'stylesheet' }
+    %script{ src: relative_path_to(item_with_identifier '/js/manifest/') + '?' + Time.now.to_i.to_s, type: 'text/javascript' }
   %body
-    #cr-stage
+    .container
+      #cr-stage

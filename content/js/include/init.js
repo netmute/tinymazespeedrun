@@ -1,10 +1,11 @@
-var difficulty,
-  score,
-  easy = { size: 18, text: 'tiny room'},
-  medium = { size: 26, text: 'normal room'},
-  hard = { size: 34, text: 'huge room'};
+var score,
+  easy = { size: 18, difficulty: 'easy', text: 'tiny room'},
+  medium = { size: 26, difficulty: 'medium', text: 'normal room'},
+  hard = { size: 34, difficulty: 'hard', text: 'huge room'},
+  mode;
 
 window.onload = function () {
+
   var manifest = [
     {id:"confirm", src:"audio/confirm.mp3"},
     {id:"teleport", src:"audio/teleport.mp3"},
@@ -17,4 +18,5 @@ window.onload = function () {
     Crafty.scene("intro");
   }
   preload.loadManifest(manifest);
+
 };
