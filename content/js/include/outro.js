@@ -51,7 +51,7 @@ function drawHighscore(score_id){
           $('#name_entry').remove();
           Crafty('Scores').destroy();
           drawHighscore(response.id);
-        });
+        }, 'json');
       });
     }
 
