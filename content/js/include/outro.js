@@ -41,8 +41,8 @@ function drawHighscore(score_id){
   $.getJSON('/scores/?mode=' + mode.difficulty + '&' + Date.now(), function(highscores){
 
     if (score < _.last(highscores).score) {
-      $('.container').append('<input type="text" value="Anonymous" id="name_entry"></input>');
-      $('.container').append('<input type="button" value="Submit score" id="submit_score"></input>');
+      $('#container').append('<input type="text" value="Anonymous" id="name_entry"></input>');
+      $('#container').append('<input type="button" value="Submit score" id="submit_score"></input>');
 
       $('#name_entry').bind('focus', function(){
         $(this).prop('value', '');
