@@ -2,10 +2,12 @@ Crafty.scene("highscores", function(){
   Crafty.init(800, 710);
   Crafty.e("2D, Canvas, highscoresImage").attr({ y:0, x:0});
 
-  var button = Crafty.e("2D, Canvas, Color, Text, Tween, Mouse")
+  var refreshScores = setInterval(getAndDrawScores, 30000),
+    button = Crafty.e("2D, Canvas, Color, Text, Tween, Mouse")
     .attr({ y:510, x:100, w:150, h:20 })
     .bind('Click', function(){
       this.text('loading...');
+      clearInterval(refreshScores);
       SoundJS.play('confirm');
       _.delay(function(){
         Crafty.scene('intro');
@@ -20,13 +22,20 @@ Crafty.scene("highscores", function(){
     button.tween({ x:(800-button.w)/2 }, 1);
   }, 50);
 
+  getAndDrawScores();
+
+});
+
+function getAndDrawScores(){
   getAndDrawScore(easy, 0*264+4);
   getAndDrawScore(medium, 1*264+4);
   getAndDrawScore(hard, 2*264+4);
-});
+}
 
 function getAndDrawScore(mode, offset){
   $.getJSON('/scores/?mode=' + mode.difficulty + '&' + Date.now(), function(highscores){
+
+    Crafty('Scores_' + mode.difficulty).destroy();
 
     Crafty.e("Scores_" + mode.difficulty + ", 2D, Canvas, Text, Tween")
       .attr({ y:130, x:offset, w:150, h:20 })
