@@ -19,7 +19,7 @@ Crafty.scene("intro", function(){
       SoundJS.play('confirm');
       _.delay(function(){
         Crafty.scene('game');
-      }, 500);
+      }, 50);
     })
     .text(easy.text)
     .color('rgb(63,63,63)')
@@ -37,7 +37,7 @@ Crafty.scene("intro", function(){
       SoundJS.play('confirm');
       _.delay(function(){
         Crafty.scene('game');
-      }, 500);
+      }, 50);
     })
     .text(medium.text)
     .color('rgb(63,63,63)')
@@ -55,7 +55,7 @@ Crafty.scene("intro", function(){
       SoundJS.play('confirm');
       _.delay(function(){
         Crafty.scene('game');
-      }, 500);
+      }, 50);
     })
     .text(hard.text)
     .color('rgb(63,63,63)')
@@ -72,7 +72,7 @@ Crafty.scene("intro", function(){
       SoundJS.play('confirm');
       _.delay(function(){
         Crafty.scene('highscores');
-      }, 500);
+      }, 50);
     })
     .text('highscores')
     .color('rgb(63,63,63)')

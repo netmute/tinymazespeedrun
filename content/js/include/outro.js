@@ -21,7 +21,7 @@ Crafty.scene("outro", function(){
         $('#submit_score').remove();
         $('#name_entry').remove();
         Crafty.scene('intro');
-      }, 500);
+      }, 50);
     })
     .color('rgb(63,63,63)')
     .textFont({size:'20px', family:'Arial'})

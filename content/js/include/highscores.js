@@ -11,7 +11,7 @@ Crafty.scene("highscores", function(){
       SoundJS.play('confirm');
       _.delay(function(){
         Crafty.scene('intro');
-      }, 500);
+      }, 50);
     })
     .color('rgb(63,63,63)')
     .textFont({size:'20px', family:'Arial'})
