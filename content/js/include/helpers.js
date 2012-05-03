@@ -19,6 +19,8 @@ function playSilent(sound){
 }
 
 function fadeOut(soundInstance){
+  if (!soundInstance) return;
+
   var volume = soundInstance.getVolume();
   if (volume < 0.2){
     soundInstance.stop();
