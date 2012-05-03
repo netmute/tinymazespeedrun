@@ -4,7 +4,7 @@ var score,
   hard = { size: 34, difficulty: 'hard', text: 'huge room'},
   mode;
 
-window.onload = function () {
+window.onload = function(){
 
   var manifest = [
     {id:"confirm", src:"audio/confirm.mp3"},
@@ -14,7 +14,7 @@ window.onload = function () {
   ];
   preload = new PreloadJS();
   preload.installPlugin(SoundJS);
-  preload.onComplete = function() {
+  preload.onComplete = function(){
     Crafty.scene("intro");
   }
   preload.loadManifest(manifest);

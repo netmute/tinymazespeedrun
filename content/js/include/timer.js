@@ -37,8 +37,9 @@ function drawTimer(size, screenWidth){
     .attr({ y:0, x:screenWidth-142, w:100, h:size })
     .textFont({size:size+'px', family:'Arial', weight: 'normal'})
     .textColor('#000000')
-    .bind('EnterFrame', function () {
+    .bind('EnterFrame', function(){
       this.text('Your time: ' + timer.duration());
+      this.attr({ x: screenWidth-this.w });
     });
   return timer;
 }
