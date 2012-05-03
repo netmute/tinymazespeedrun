@@ -15,11 +15,12 @@ Crafty.scene("game", function(){
     horizontalCenter = (fieldSize+borderThickness)*(fieldCount/2),
     playerSize = Math.round(fieldSize*0.8),
     playerSpeed = 3,
-    paddingToBorder = Math.floor((fieldSize-playerSize)/2)+borderThickness;
+    paddingToBorder = Math.floor((fieldSize-playerSize)/2)+borderThickness,
+    timer = drawTimer(timerSize - 2, playingFieldX),
+    music = playLoud('music');
 
   drawMaze(fieldCount, fieldSize, timerSize, borderThickness, maze);
-  timer = drawTimer(timerSize - 2, playingFieldX);
-  createPlayer(paddingToBorder, horizontalCenter+paddingToBorder+timerSize, playerSize, playerSpeed, timer, playingFieldX, timerSize);
+  createPlayer(paddingToBorder, horizontalCenter+paddingToBorder+timerSize, playerSize, playerSpeed, timer, playingFieldX, timerSize, music);
   createExit(playingFieldX-playerSize-paddingToBorder, horizontalCenter+paddingToBorder+timerSize, playerSize);
 
 });

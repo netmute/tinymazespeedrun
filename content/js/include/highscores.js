@@ -8,7 +8,7 @@ Crafty.scene("highscores", function(){
     .bind('Click', function(){
       this.text('loading...');
       clearInterval(refreshScores);
-      SoundJS.play('confirm');
+      playSilent('confirm');
       _.delay(function(){
         Crafty.scene('intro');
       }, 50);

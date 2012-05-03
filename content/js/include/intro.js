@@ -16,7 +16,7 @@ Crafty.scene("intro", function(){
     .bind('Click', function(){
       mode = easy;
       this.text('loading...');
-      SoundJS.play('confirm');
+      playSilent('confirm');
       _.delay(function(){
         Crafty.scene('game');
       }, 50);
@@ -34,7 +34,7 @@ Crafty.scene("intro", function(){
     .bind('Click', function(){
       mode = medium;
       this.text('loading...');
-      SoundJS.play('confirm');
+      playSilent('confirm');
       _.delay(function(){
         Crafty.scene('game');
       }, 50);
@@ -52,7 +52,7 @@ Crafty.scene("intro", function(){
     .bind('Click', function(){
       mode = hard;
       this.text('loading...');
-      SoundJS.play('confirm');
+      playSilent('confirm');
       _.delay(function(){
         Crafty.scene('game');
       }, 50);
@@ -69,7 +69,7 @@ Crafty.scene("intro", function(){
             h:buttonHeigth })
     .bind('Click', function(){
       this.text('loading...');
-      SoundJS.play('confirm');
+      playSilent('confirm');
       _.delay(function(){
         Crafty.scene('highscores');
       }, 50);

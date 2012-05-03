@@ -16,7 +16,7 @@ Crafty.scene("outro", function(){
     .attr({ y:610, x:(width-150)/2+offset, w:150, h:20 })
     .bind('Click', function(){
       this.text('loading...');
-      SoundJS.play('confirm');
+      playSilent('confirm');
       _.delay(function(){
         $('#submit_score').remove();
         $('#name_entry').remove();

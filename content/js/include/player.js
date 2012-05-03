@@ -1,7 +1,7 @@
-function createPlayer(start_x, start_y, size, speed, timer, maxOuterBounds, minTopBounds){
+function createPlayer(start_x, start_y, size, speed, timer, maxOuterBounds, minTopBounds, music){
 
   function destroyBlock(block, player, from){
-    SoundJS.play('destroy');
+    playSilent('destroy');
     Crafty.e("2D, Canvas, debris").attr({ x:block.x, y:block.y });
     block.destroy();
     if (player.x != from.x)
@@ -11,6 +11,7 @@ function createPlayer(start_x, start_y, size, speed, timer, maxOuterBounds, minT
   }
 
   function finishGame(){
+    fadeOut(music);
     timer.stop();
     score = timer.duration();
     Crafty.scene('outro');
@@ -52,7 +53,7 @@ function createPlayer(start_x, start_y, size, speed, timer, maxOuterBounds, minT
       // detect if player collected powerup
       if (this.hit('Powerup')) {
         var powerup = _.first(this.hit('Powerup')).obj
-        SoundJS.play('powerup');
+        playSilent('powerup');
         this.isGod = true;
         powerup.destroy();
         _.delay(function(player){
@@ -68,7 +69,7 @@ function createPlayer(start_x, start_y, size, speed, timer, maxOuterBounds, minT
         (this.x > maxOuterBounds) ||
         (this.y < minTopBounds) ||
         (this.y > maxOuterBounds + minTopBounds)) {
-          SoundJS.play('teleport');
+          playSilent('teleport');
           this.attr({x: start_x, y:start_y});
       }
     }),

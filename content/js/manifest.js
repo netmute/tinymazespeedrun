@@ -1,7 +1,7 @@
 //= require_tree ./include/lib/
 
 //= require include/timer.js
-//= require include/text.js
+//= require include/helpers.js
 //= require include/generate_maze.js
 //= require include/sprites.js
 //= require include/draw_maze.js

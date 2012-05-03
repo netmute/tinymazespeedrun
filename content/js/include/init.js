@@ -10,7 +10,8 @@ window.onload = function(){
     {id:"confirm", src:"audio/confirm.mp3"},
     {id:"teleport", src:"audio/teleport.mp3"},
     {id:"destroy", src:"audio/destroy.mp3"},
-    {id:"powerup", src:"audio/powerup.mp3"}
+    {id:"powerup", src:"audio/powerup.mp3"},
+    {id:"music", src:"audio/music.mp3"}
   ];
   preload = new PreloadJS();
   preload.installPlugin(SoundJS);
