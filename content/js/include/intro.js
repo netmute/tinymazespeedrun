@@ -9,7 +9,7 @@ Crafty.scene("intro", function(){
   var image = Crafty.e("2D, Canvas, introImage").attr({ y:0, x:offset});
 
   Crafty.e("2D, Canvas, Color, Text, Mouse")
-    .attr({ y: image.h - buttonHeigth,
+    .attr({ y: image.h + 20,
             x: offset + 20,
             w:buttonWidth,
             h:buttonHeigth })
@@ -27,7 +27,7 @@ Crafty.scene("intro", function(){
     .textColor('#FFFFFF');
 
   Crafty.e("2D, Canvas, Color, Text, Mouse")
-    .attr({ y: image.h - buttonHeigth,
+    .attr({ y: image.h + 20,
             x: offset + 20 + 1 * (buttonWidth + buttonPadding),
             w:buttonWidth,
             h:buttonHeigth })
@@ -45,7 +45,7 @@ Crafty.scene("intro", function(){
     .textColor('#FFFFFF');
 
   Crafty.e("2D, Canvas, Color, Text, Mouse")
-    .attr({ y: image.h - buttonHeigth,
+    .attr({ y: image.h + 20,
             x: offset + 20 + 2 * (buttonWidth + buttonPadding),
             w:buttonWidth,
             h:buttonHeigth })
@@ -58,6 +58,23 @@ Crafty.scene("intro", function(){
       }, 500);
     })
     .text(hard.text)
+    .color('rgb(63,63,63)')
+    .textFont({size:'20px', family:'Arial', weight: 'normal'})
+    .textColor('#FFFFFF');
+
+  Crafty.e("2D, Canvas, Color, Text, Mouse")
+    .attr({ y: image.h - 20,
+            x: offset + 20 + 1 * (buttonWidth + buttonPadding),
+            w:buttonWidth,
+            h:buttonHeigth })
+    .bind('Click', function(){
+      this.text('loading...');
+      SoundJS.play('confirm');
+      _.delay(function(){
+        Crafty.scene('highscores');
+      }, 500);
+    })
+    .text('highscores')
     .color('rgb(63,63,63)')
     .textFont({size:'20px', family:'Arial', weight: 'normal'})
     .textColor('#FFFFFF');

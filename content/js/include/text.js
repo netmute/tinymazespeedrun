@@ -6,10 +6,6 @@ function drawText(text, size, x, y){
     .text(text);
 }
 
-function wait(milliseconds) {
-  console.log('waiting');
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++)
-    if ((new Date().getTime() - start) > milliseconds)
-      break;
+function capitaliseFirstLetter(string){
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }

@@ -23,3 +23,7 @@ Crafty.sprite("img/intro.png?" + Date.now(), {
 Crafty.sprite("img/outro.png?" + Date.now(), {
   outroImage: [0, 0, 600, 400]
 });
+
+Crafty.sprite("img/highscores.png?" + Date.now(), {
+  highscoresImage: [0, 0, 800, 100]
+});

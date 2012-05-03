@@ -9,6 +9,7 @@
 //= require include/exit.js
 
 //= require include/intro.js
+//= require include/highscores.js
 //= require include/game.js
 //= require include/outro.js
 
