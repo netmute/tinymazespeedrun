@@ -33,7 +33,8 @@ function getAndDrawScores(){
 }
 
 function getAndDrawScore(mode, offset){
-  $.getJSON('/scores/?mode=' + mode.difficulty + '&' + Date.now(), function(highscores){
+  var scoreAPI = "http://highscores.simonernst.com/tinymaze";
+  $.getJSON(scoreAPI + '?reverse=true&scope=' + mode.difficulty + '&' + Date.now(), function(highscores){
 
     Crafty('Scores_' + mode.difficulty).destroy();
 
@@ -52,7 +53,7 @@ function getAndDrawScore(mode, offset){
         .attr({ y:170+padding, x:offset, w:150, h:20 })
         .textFont({size:'20px', family:'Arial', weight:'normal'})
         .textColor(color)
-        .text('' + (index+1) + ': ' + highscore.name + ', ' + highscore.score + ' seconds');
+        .text('' + (index+1) + ': ' + highscore.player + ', ' + highscore.score/100 + ' seconds');
 
     });
 
