@@ -38,9 +38,10 @@ Crafty.scene("outro", function(){
 });
 
 function drawHighscore(score_id){
-  $.getJSON('/scores/?mode=' + mode.difficulty + '&' + Date.now(), function(highscores){
+  var scoreAPI = "http://highscores.simonernst.com/tinymaze";
+  $.getJSON(scoreAPI + '?reverse=true&scope=' + mode.difficulty + '&' + Date.now(), function(highscores){
 
-    if (score < _.last(highscores).score) {
+    if (score < _.last(highscores).score/100) {
       $('#container').append('<input type="text" value="Anonymous" id="name_entry"></input>');
       $('#container').append('<input type="button" value="Submit score" id="submit_score"></input>');
 
@@ -49,12 +50,12 @@ function drawHighscore(score_id){
       });
 
       $('#submit_score').bind('click', function(){
-        var data = {name: $('#name_entry').prop('value'),
-          mode: mode.difficulty,
-          score: score}
+        var data = {player: $('#name_entry').prop('value'),
+          scope: mode.difficulty,
+          score: score*100}
 
-        $.post('/scores/', data, function(response){
-          score = 9999;
+        $.post(scoreAPI, data, function(response){
+          score = 999999;
           $('#submit_score').remove();
           $('#name_entry').remove();
           Crafty('Scores').destroy();
@@ -78,7 +79,7 @@ function drawHighscore(score_id){
         .attr({ y:290+padding, x:185, w:150, h:20 })
         .textFont({size:'20px', family:'Arial', weight:'normal'})
         .textColor(color)
-        .text('' + (index+1) + ': ' + highscore.name + ', ' + highscore.score + ' seconds');
+        .text('' + (index+1) + ': ' + highscore.player + ', ' + highscore.score/100 + ' seconds');
 
     });
 
